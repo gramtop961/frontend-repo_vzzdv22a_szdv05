@@ -1,30 +1,5 @@
 import React, { useState } from 'react';
-import {
-  ShieldCheck,
-  Cog,
-  Palette,
-  Car,
-  Leaf,
-  Video,
-  MapPin,
-  Users,
-  CheckCircle2,
-  Sparkles,
-  Ruler,
-  Trees,
-} from 'lucide-react';
-
-const FeatureCard = ({ icon: Icon, title, desc }) => (
-  <div className="rounded-2xl bg-white/80 backdrop-blur border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow">
-    <div className="flex items-center gap-3 mb-3">
-      <div className="p-2 rounded-xl bg-blue-50 text-blue-700 ring-1 ring-blue-200">
-        <Icon className="w-5 h-5" aria-hidden="true" />
-      </div>
-      <h3 className="font-semibold text-slate-900">{title}</h3>
-    </div>
-    <p className="text-slate-600 text-sm leading-relaxed">{desc}</p>
-  </div>
-);
+import { Sparkles, CheckCircle2 } from 'lucide-react';
 
 const BeforeAfterSlider = () => {
   const [val, setVal] = useState(50);
@@ -73,26 +48,6 @@ const BeforeAfterSlider = () => {
 const OverviewSections = () => {
   return (
     <main>
-      {/* Servizi & Vantaggi */}
-      <section className="py-16 sm:py-20 bg-gradient-to-b from-white to-slate-50" id="appartamenti">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <header className="mb-10">
-            <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900">Servizi & Vantaggi</h2>
-            <p className="text-slate-600 mt-2 max-w-2xl">Comfort, efficienza e sicurezza pensati per la tua vita quotidiana.</p>
-          </header>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <FeatureCard icon={ShieldCheck} title="Classe energetica A" desc="Pannelli solari, cappotto termico e impianti ad alta efficienza." />
-            <FeatureCard icon={Cog} title="Domotica integrata" desc="Controllo luci, clima e sicurezza da smartphone ovunque." />
-            <FeatureCard icon={Palette} title="Personalizzazione finiture" desc="Scegli materiali e palette insieme ai nostri designer." />
-            <FeatureCard icon={Car} title="Posto auto garantito" desc="Parcheggio dedicato per ogni unità, con accesso sicuro." />
-            <FeatureCard icon={Leaf} title="Aree verdi & relax" desc="Giardini curati, zone lettura e aree barbecue condivise." />
-            <FeatureCard icon={Video} title="Videosorveglianza H24" desc="Monitoraggio continuo degli accessi e degli spazi comuni." />
-            <FeatureCard icon={MapPin} title="Posizione strategica" desc="A Nola, vicino a servizi, scuole e collegamenti principali." />
-            <FeatureCard icon={Users} title="Assistenza dedicata" desc="Un team a supporto dal primo contatto alla consegna." />
-          </div>
-        </div>
-      </section>
-
       {/* Personalizzazione timeline + swatches */}
       <section className="py-16 sm:py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -152,21 +107,19 @@ const OverviewSections = () => {
       {/* Before/After */}
       <BeforeAfterSlider />
 
-      {/* Panoramica del Parco + mini-stats + icone servizi del parco */}
+      {/* Panoramica del Parco (contenuti generali, senza servizi) */}
       <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-50 to-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-start">
             <div>
               <h2 className="text-3xl font-semibold text-slate-900 mb-4">Panoramica del Parco</h2>
-              <p className="text-slate-600 mb-4">Un masterplan pensato per il benessere: percorsi pedonali, aree relax e verde diffuso.</p>
+              <p className="text-slate-600 mb-4">Un progetto residenziale dal design contemporaneo, pensato per funzionalità, qualità e comfort quotidiano.</p>
               <ul className="space-y-2 text-slate-700">
                 {[
-                  'Edifici residenziali moderni',
-                  'Percorsi pedonali protetti',
-                  'Aree giochi bimbi',
-                  'Zone relax e socialità',
-                  'Parcheggi dedicati',
-                  'Colonnine di ricarica (se presenti)',
+                  'Architettura contemporanea',
+                  'Materiali selezionati',
+                  'Spazi comuni curati',
+                  'Layout funzionali e luminosi',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-blue-600 mt-0.5" aria-hidden="true" />
@@ -193,25 +146,6 @@ const OverviewSections = () => {
               <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-sm bg-white">
                 <div className="aspect-[4/3] bg-slate-100 flex items-center justify-center text-slate-500">
                   Mappa / Masterplan
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6">
-                  {[
-                    { icon: Car, label: 'Parcheggio gratuito' },
-                    { icon: Trees, label: 'Spazi verdi' },
-                    { icon: Leaf, label: 'Area relax' },
-                    { icon: Cog, label: 'Domotica' },
-                    { icon: ShieldCheck, label: 'Videosorveglianza' },
-                    { icon: Ruler, label: 'Tagli vari' },
-                    { icon: MapPin, label: 'Vicino ai servizi' },
-                    { icon: Sparkles, label: 'Pannelli solari' },
-                  ].map(({ icon: Ico, label }) => (
-                    <div key={label} className="flex items-center gap-2 text-slate-700">
-                      <div className="p-2 rounded-lg bg-slate-50 border border-slate-200">
-                        <Ico className="w-4 h-4" aria-hidden="true" />
-                      </div>
-                      <span className="text-sm">{label}</span>
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>
